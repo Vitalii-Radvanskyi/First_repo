@@ -7,4 +7,5 @@ if num >=  25 or not isHesCar :
 elif num == 1: 
     print("Oleg\'s lucky number")
 else:
-    print("noooooo")        
+    print("noooooo")      
+      
