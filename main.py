@@ -1,66 +1,53 @@
-#1
-age = 17
+n =  int(input("Число: "))
+if n >= 0:
+    if n == 0:
+        print("Нуль")
+    else:
+        print("Додатнє")
+else:
+    print("Відємне число")  
+    
+temp = int(input("Температура: "))
+if temp >= 0:
+    if temp >= 20:
+        print("Тепло")
+    else:
+        print("Прохолодно")
+else:
+    print("Холодно")
+    
+age = int(input("Вік: "))
+has_tiket = (True or False) # я незрозумів (True or False) це на вибір ?
 if age >= 18:
-    print("Дорослий")
+    if has_tiket:
+        print("Можна зайти")
+    else:
+        ("Немає квитка")
 else:
-    print("Неповнолітній")    
-#2    
-score = 72
-if score >= 90:
-    print("Відмінно")
-elif score>= 60:
-    print("Зараховано")
+    print("Замалий вік")            
+    
+score = int(input("Ведіть оцінку : "))
+if score >= 60:
+    if score >= 90:
+        print("Відмінно")
+    else:
+        print("Зараховано")
 else:
-    print("Не зараховано")
-#3
-age = 20
-has_id = True
-if age >=18 and has_id:
-    print("Доступ дозволено")
+    print("Не зараховано") 
+    
+hours = int(input(""))
+if hours < 12:
+    if hours < 6:
+        print("Ніч")
+    else:
+        print("Ранок")
 else:
-    print("Доступ заборонено")
-#4    
-is_admin = False
-is_moderator = True
-if is_admin or is_moderator:
-    print("Права доступу є")
-else:
-    print("Немає прав")
-#5   
-is_blocked = False
-if not is_blocked:
-    print("Користувач активний")
-else:
-    print("Користувач заблокований")  
-#6    
-is_logged_in = True
-is_blocked = False
-if not is_blocked and is_logged_in:
-    print("Показати dashboard")
-else:
-    print("Доступ заборонено") 
-#7    
-age = 17
-has_parent_permission = True
-if age >= 18 or (age >= 16 and has_parent_permission):
-    print("Можна зайти")
-else:                                    
-    print("Не можна зайти")
-##8
-temp = int(input("Ведіть температуру: "))  
-if temp >= 30 :
-    print("Жарко")
-elif temp >= 15:
-    print("Норм")
-else:
-    print("Холодно")    
-##9
-login = input("Login: ")
-password = input("Password: ")
-is_blocked = False
-if login == "admin" and password == "1234" and (not is_blocked):
-    print("Welcom")
-else:
-    print("Access denied")        
-        
- 
+    if hours < 18:
+        print("День")
+    else:
+        print("Вечір")                  
+                
+age = 16
+my_age ="+18" age >= 18 or "Не 18"
+print(my_age)
+              
