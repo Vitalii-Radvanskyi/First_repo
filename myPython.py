@@ -1,26 +1,18 @@
-import math
-print(math.sqrt(81))
+from datetime import datetime
+def get_days_from_today(date_str):
+    try:
+        date_objc = datetime.strptime(date_str, "%Y.%m.%d")
+        time_today = datetime.today()
+        deff_time = time_today - date_objc
+        return deff_time.days
+    except ValueError:
+        return None
 
-import math
-print(math.pow(2, 5))
 
-import math 
-print(math.ceil(7.8))
-print(math.floor(7.8))
-
-
-import math 
-print(math.log(64, 2))
-
-import math
-print(math.radians(180))
-
-import math
-angle = math.radians(30)
-print(math.sin(angle))
-
-import math
-old_price = 200
-new_price = 250
-log_return = math.log(new_price / old_price) 
-print(log_return)
+import random
+def get_number_ticket(min, max, quantity):
+    try:
+        nums = range(min, max) 
+        return random.sample(nums, quantity)
+    except (TypeError, ValueError):
+        return None
