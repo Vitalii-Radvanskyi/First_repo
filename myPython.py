@@ -29,12 +29,10 @@ def get_numbers_ticket(min, max, quantity):
     
 import re
 def normalize_phone(phone_number):
-    result =[]
-    digits = re.sub(r"\D", "", digits)
+    digits = re.sub(r"\D", "", phone_number)
     if digits.startswith("380"):
-        result.append("+" + digits)
+        return "+" + digits
     elif digits.startswith("0"):
-        result.append("+38" + digits)
+        return "+38" + digits
     else:
-        result.append("+" + digits)
-    return result        
+        return "+" + digits
