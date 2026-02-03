@@ -10,7 +10,9 @@ def get_days_from_today(date_str):
 
 
 import random
-def get_number_ticket(min, max, quantity):
+def get_numbers_ticket(min, max, quantity):
+    if max > 1000:
+        return []
     if min < 0:
         return []
     if min >= max:
@@ -20,20 +22,19 @@ def get_number_ticket(min, max, quantity):
     try:
         nums = range(min, max) 
         return random.sample(nums, quantity)
+    
     except (TypeError, ValueError):
         return []
     
     
 import re
-def phone_number(numbers):
+def normalize_phone(phone_number):
     result =[]
-    for digits in numbers:
-        digits = re.sub(r"\D", "", digits)
-        if digits.startswith("380"):
-            result.append("+" + digits)
-        elif digits.startswith("0"):
-            result.append("+38" + digits)
-        else:
-            result.append("+" + digits)
+    digits = re.sub(r"\D", "", digits)
+    if digits.startswith("380"):
+        result.append("+" + digits)
+    elif digits.startswith("0"):
+        result.append("+38" + digits)
+    else:
+        result.append("+" + digits)
     return result        
-        
