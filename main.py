@@ -1,15 +1,18 @@
-def get_city(user):
-    for key in user:
-        if "city" in user:
-            return "City is there"
-        else:
-            return "unknown"
-        
-
-user = {"name": "Vitalii", "age": 26, "city": "Calgary"}
-print(get_city(user=user))
-
-
-def count_word(text):
-    readi_dict = {}
+import random
+def get_numbers_ticket(min, max, quantity):
+    if max > 1000:
+        return []
+    if min < 0:
+        return []
+    if min >= max:
+        return[]
+    if quantity > (max - min):
+        return[]
+    try:
+        nums = range(min, max)
+        return sorted(random.sample(nums, quantity))
     
+    except (TypeError, ValueError):
+        return []
+
+

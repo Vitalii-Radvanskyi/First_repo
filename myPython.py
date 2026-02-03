@@ -1,38 +1,44 @@
-from datetime import datetime
-def get_days_from_today(date_str):
-    try:
-        date_objc = datetime.strptime(date_str, "%Y-%m-%d")
-        time_today = datetime.today()
-        deff_time = time_today - date_objc
-        return deff_time.days
-    except ValueError:
-        return None
+from datetime import datetime, timedelta, date
+# today = datetime.now()
+# future = today + timedelta(days=10)
+
+# print(future)
 
 
-import random
-def get_numbers_ticket(min, max, quantity):
-    if max > 1000:
-        return []
-    if min < 0:
-        return []
-    if min >= max:
-        return[]
-    if quantity > (max - min):
-        return[]
-    try:
-        nums = range(min, max) 
-        return random.sample(nums, quantity)
+# date_str = "2026.03.15"
+# date_objc = datetime.strptime(date_str, "%Y.%m.%d").date()
+# future = date_objc + timedelta(days=30)
+# future = date_objc.strftime("%Y.%m.%d")
+# print(future)
+# print(type(future))
+
+
+# d1 = date(2026, 2, 1)
+# d2 = date(2026, 2, 20)
+# if d1 < d2:
+#     print("d1 earlier")
+# elif d1 == d2:
+#     print("Same date")
+# else:
+#     print("d1 later")       
+
+
+# d = date(2026, 2, 7)  #Кейс перший якщо хоч знати який точно день сихідних(В разі чого я для себе)
+# d = d.weekday()
+# if d == 5:
+#     print("Suturday")
+# elif d == 6:
+#     print("Sunday")
+# else:
+#     print("Workday")
     
-    except (TypeError, ValueError):
-        return []
     
+d = date(2026, 2, 7) # Кейс два якщо простот вихідні і будні  (В разі чого я для себе)
+d = d.weekday()
+if d >= 5:
+    print("Weekend")  
+else:
+    print("Workday")  
     
-import re
-def normalize_phone(phone_number):
-    digits = re.sub(r"\D", "", phone_number)
-    if digits.startswith("380"):
-        return "+" + digits
-    elif digits.startswith("0"):
-        return "+38" + digits
-    else:
-        return "+" + digits
+birthday = (1995, 2, 5)
+
