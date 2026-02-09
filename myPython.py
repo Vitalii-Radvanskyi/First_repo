@@ -1,44 +1,41 @@
-from datetime import datetime, timedelta, date
-# today = datetime.now()
-# future = today + timedelta(days=10)
+from pathlib import Path
 
-# print(future)
-
-
-# date_str = "2026.03.15"
-# date_objc = datetime.strptime(date_str, "%Y.%m.%d").date()
-# future = date_objc + timedelta(days=30)
-# future = date_objc.strftime("%Y.%m.%d")
-# print(future)
-# print(type(future))
-
-
-# d1 = date(2026, 2, 1)
-# d2 = date(2026, 2, 20)
-# if d1 < d2:
-#     print("d1 earlier")
-# elif d1 == d2:
-#     print("Same date")
-# else:
-#     print("d1 later")       
-
-
-# d = date(2026, 2, 7)  #Кейс перший якщо хоч знати який точно день сихідних(В разі чого я для себе)
-# d = d.weekday()
-# if d == 5:
-#     print("Suturday")
-# elif d == 6:
-#     print("Sunday")
-# else:
-#     print("Workday")
+def total_salary(path):
+    path = Path(path)
+    total = 0
+    count = 0
+    if not path.exists():
+        raise FileNotFoundError
+    with path.open(encoding='utf-8') as file:
+        for line in file:
+            try:
+                name, salary = line.strip().split(',')
+                total += int(salary)
+                count +=1
+            except ValueError:
+                continue
+    if count == 0:
+        return 0, 0.0
     
-    
-d = date(2026, 2, 7) # Кейс два якщо простот вихідні і будні  (В разі чого я для себе)
-d = d.weekday()
-if d >= 5:
-    print("Weekend")  
-else:
-    print("Workday")  
-    
-birthday = (1995, 2, 5)
+    average = total/count
+    return (total,average)
 
+
+
+def get_cats_info(path):
+    cats_info = []
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError
+    with path.open(encoding='utf-8') as file:
+        for line in file:
+            try:
+                cat_id, name, age =line.strip().split(',')
+                cats_info.append({"cat_id":cat_id, "name":name, 'age':int(age)})
+            except ValueError:
+                continue
+    return cats_info  
+
+
+total, average = total_salary('salary.txt')
+print(f'Загальна сума заробітньої платні: {total},\nСереднє значення заробітньої платні: {average}')
