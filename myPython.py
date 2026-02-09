@@ -21,6 +21,10 @@ def total_salary(path):
     return (total,average)
 
 
+total, average = total_salary('salary.txt') # моя перевірка 
+print(f'Загальна сума заробітньої платні: {total},\nСереднє значення заробітньої платні: {average}')
+
+
 
 def get_cats_info(path):
     cats_info = []
@@ -37,5 +41,6 @@ def get_cats_info(path):
     return cats_info  
 
 
-total, average = total_salary('salary.txt')
-print(f'Загальна сума заробітньої платні: {total},\nСереднє значення заробітньої платні: {average}')
+cats_list = get_cats_info('test.txt') # моя перевірка 
+for line in cats_list:
+    print(line)
